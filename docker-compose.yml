@@ -1,0 +1,109 @@
+version: "3.7"
+
+services:
+    # tw: 建立 php
+    # en: Build php
+    web-php:
+        container_name: web-php
+        build:
+            context: ./php
+            dockerfile: Dockerfile
+        image: web-php:7.3
+        restart: on-failure
+        volumes:
+            - ./php/conf:/usr/local/etc/php
+            - web-site:/var/www/html
+        networks:
+            - default-network
+    web-php-1:
+        container_name: web-php-1
+        image: web-php:7.3
+        restart: on-failure
+        volumes:
+            - ./php/conf:/usr/local/etc/php
+            - web-site:/var/www/html
+        networks:
+            - default-network
+        depends_on:
+            - web-php
+    web-php-2:
+        container_name: web-php-2
+        image: web-php:7.3
+        restart: on-failure
+        volumes:
+            - ./php/conf:/usr/local/etc/php
+            - web-site:/var/www/html
+        networks:
+            - default-network
+        depends_on:
+            - web-php
+    web-php-3:
+        container_name: web-php-3
+        image: web-php:7.3
+        restart: on-failure
+        volumes:
+            - ./php/conf:/usr/local/etc/php
+            - web-site:/var/www/html
+        networks:
+            - default-network
+        depends_on:
+            - web-php
+
+    # tw: 建立 nginx
+    # en: Build nginx
+    web-nginx:
+        container_name: web-nginx
+        build:
+            context: ./nginx
+            dockerfile: Dockerfile
+        restart: on-failure
+        ports:
+            - 80:80
+            - 443:443
+        depends_on:
+            - web-php
+        volumes:
+            - ./nginx/conf:/etc/nginx/conf.d
+            - ./nginx/alias:/etc/nginx/alias
+            - web-site:/var/www/html
+        networks:
+            - default-network
+
+    # tw: 建立 mariadb
+    # en: Build mariadb
+    web-mariadb:
+        container_name: web-mariadb
+        build:
+            context: ./mariadb
+            dockerfile: Dockerfile
+        restart: on-failure
+        environment:
+            - MYSQL_ROOT_PASSWORD=${WEB_MYSQL_ROOT_PASSWORD:?err}
+            - MYSQL_USER=${WEB_MYSQL_USER:?err}
+            - MYSQL_PASSWORD=${WEB_MYSQL_PASSWORD:?err}
+        volumes:
+            - web-database:/var/lib/mysql
+        networks:
+            - default-network
+
+volumes:
+    # tw: Web 網頁檔案存放路徑
+    # en: Web page file storage path
+    web-site:
+        driver: local
+        driver_opts:
+            type: none
+            device: $PWD/${WEB_PATH:?err}
+            o: bind
+    # tw: Mariadb 資料庫存放路徑
+    # en: Mariadb data storage path
+    web-database:
+        driver: local
+        driver_opts:
+            type: none
+            device: $PWD/${WEB_DATA:?err}
+            o: bind
+
+networks:
+    default-network:
+        name: ${APP_NAME:?err}-network
