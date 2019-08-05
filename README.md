@@ -2,8 +2,10 @@ service-lnmp
 ============
 
 上方為中文說明
+Chinese description above
 
 下方英文說明為 Google 翻譯
+The English description below is Google Translate
 
 
 使用 Docker-compose 建立的 NginX + PHP + MariaDB 供開發使用
