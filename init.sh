@@ -15,5 +15,16 @@ for path in "${REPLY[@]}"; do
 
 	if ! [ -d "${param[1]}" ]; then
 		mkdir -p "$(dirname "$0")/${param[1]}"
+		if [ ${param[0]} = "WEB_PATH" ]; then
+			echo "<!DOCTYPE html>"                  > $(dirname "$0")/${param[1]}/index.php
+			echo "<html>"                          >> $(dirname "$0")/${param[1]}/index.php
+			echo "<head>"                          >> $(dirname "$0")/${param[1]}/index.php
+			echo "    <title>Hello World!</title>" >> $(dirname "$0")/${param[1]}/index.php
+			echo "</head>"                         >> $(dirname "$0")/${param[1]}/index.php
+			echo "<body>"                          >> $(dirname "$0")/${param[1]}/index.php
+			echo "    <?php phpinfo(); ?>"         >> $(dirname "$0")/${param[1]}/index.php
+			echo "</body>"                         >> $(dirname "$0")/${param[1]}/index.php
+			echo "</html>"                         >> $(dirname "$0")/${param[1]}/index.php
+		fi
 	fi
 done
