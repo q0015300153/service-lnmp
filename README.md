@@ -30,12 +30,13 @@ bash init.sh
 docker-compose up
 ```
 
-預設會在上一層資料夾建立以下資料夾  
-資料夾路徑              | 說明
-----------------------|------------------
-../database/web-mysql | 存放 MariaDB 資料庫
-../projects           | 存放網頁程式碼
-../projects/index.php | 自動建立的首頁
+>預設會在上一層資料夾建立以下資料夾  
+>>../database/web-mysql => 存放 MariaDB 資料庫  
+>>../projects           => 存放網頁程式碼  
+>>../projects/index.php => 自動建立的首頁  
+
+可以開啟 http://localhost/  
+來查看首頁 `phpinfo();`
 
 ### 搭配 i1-new-php 專案的使用方法，[請參閱](https://github.com/q0015300153/i1-new-php)  
 
@@ -67,6 +68,14 @@ Then execute docker-compose
 ```bash
 docker-compose up
 ```
+
+>The default will create the following folder in the previous folder  
+>>../database/web-mysql => store MariaDB database  
+>>../projects => store webpage code  
+>>../projects/index.php => Automatically created homepage  
+
+Can open http://localhost/  
+To view the home page `phpinfo();`
 
 ### How to use the i1-new-php project，[See](https://github.com/q0015300153/i1-new-php)  
 
