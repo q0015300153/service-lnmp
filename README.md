@@ -31,9 +31,9 @@ docker-compose up
 ```
 
 >預設會在上一層資料夾建立以下資料夾  
->>../database/web-mysql => 存放 MariaDB 資料庫  
->>../projects           => 存放網頁程式碼  
->>../projects/index.php => 自動建立的首頁  
+>>`../database/web-mysql` => 存放 MariaDB 資料庫  
+>>`../projects`           => 存放網頁程式碼  
+>>`../projects/index.php` => 自動建立的首頁  
 
 可以開啟 http://localhost/  
 來查看首頁 `phpinfo();`
