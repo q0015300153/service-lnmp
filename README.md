@@ -70,9 +70,9 @@ docker-compose up
 ```
 
 >The default will create the following folder in the previous folder  
->>../database/web-mysql => store MariaDB database  
->>../projects => store webpage code  
->>../projects/index.php => Automatically created homepage  
+>>`../database/web-mysql` => store MariaDB database  
+>>`../projects` => store webpage code  
+>>`../projects/index.php` => Automatically created homepage  
 
 Can open http://localhost/  
 To view the home page `phpinfo();`
