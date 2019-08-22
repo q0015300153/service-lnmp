@@ -33,6 +33,7 @@ docker-compose up
 ```
 
 >預設會在上一層資料夾建立以下資料夾  
+>>`../nginx-alias`        => 存放 NginX alias 站點設定資料夾
 >>`../database/web-mysql` => 存放 MariaDB 資料庫  
 >>`../projects`           => 存放網頁程式碼  
 >>`../projects/index.php` => 自動建立的首頁  
@@ -40,11 +41,7 @@ docker-compose up
 可以開啟 http://localhost/  
 來查看首頁 `phpinfo();`
 
-### 搭配 i1-new-php 專案的使用方法，[請參閱](https://github.com/q0015300153/i1-new-php)  
-
-結構說明  
----
-資料夾 ./nginx/alias 用於存放 Laravel 專案站點的設定檔
+### 搭配 new-php 專案的使用方法，[請參閱](https://github.com/q0015300153/new-php)  
 
 - - -
 
@@ -72,6 +69,7 @@ docker-compose up
 ```
 
 >The default will create the following folder in the previous folder  
+>>`../nginx-alias`        => Save the NginX alias site settings folder
 >>`../database/web-mysql` => store MariaDB database  
 >>`../projects` => store webpage code  
 >>`../projects/index.php` => Automatically created homepage  
@@ -79,8 +77,4 @@ docker-compose up
 Can open http://localhost/  
 To view the home page `phpinfo();`
 
-### How to use the i1-new-php project，[See](https://github.com/q0015300153/i1-new-php)  
-
-Structure description  
----
-Folder ./nginx/alias is used to store the profile of the Laravel project site  
+### How to use the new-php project，[See](https://github.com/q0015300153/new-php)  
