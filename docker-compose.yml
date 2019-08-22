@@ -64,7 +64,7 @@ services:
             - web-php
         volumes:
             - ./nginx/conf:/etc/nginx/conf.d
-            - ./nginx/alias:/etc/nginx/alias
+            - nginx-alias:/etc/nginx/alias
             - web-site:/var/www/html
         networks:
             - default-network
@@ -94,6 +94,14 @@ volumes:
         driver_opts:
             type: none
             device: $PWD/${WEB_PATH:?err}
+            o: bind
+    # tw: Nginx alias 路徑
+    # en: Nginx alias path
+    nginx-alias:
+        driver: local
+        driver_opts:
+            type: none
+            device: $PWD/${NGINX_ALIAS:?err}
             o: bind
     # tw: Mariadb 資料庫存放路徑
     # en: Mariadb data storage path
