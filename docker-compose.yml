@@ -62,6 +62,9 @@ services:
             - 443:443
         depends_on:
             - web-php
+            - web-php-1
+            - web-php-2
+            - web-php-3
         volumes:
             - ./nginx/conf:/etc/nginx/conf.d
             - nginx-alias:/etc/nginx/alias
