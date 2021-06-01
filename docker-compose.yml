@@ -47,8 +47,6 @@ services:
             - web-site:/var/www/html
         networks:
             - default-network
-        environment:
-            - PWD_TEST=$PWD/${WEB_PATH:?err}
 
     # tw: 建立 mariadb
     # en: Build mariadb

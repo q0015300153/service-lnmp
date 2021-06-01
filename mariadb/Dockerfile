@@ -1,4 +1,4 @@
-FROM mariadb:10.4
+FROM mariadb:10.6
 
 ADD ./conf/my.cnf      /etc/mysql/my.cnf
 ADD ./conf/debian.cnf  /etc/mysql/debian.cnf
