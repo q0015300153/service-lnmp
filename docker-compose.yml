@@ -1,4 +1,4 @@
-version: "3.7"
+version: "3.9"
 
 services:
     # tw: 建立 php
@@ -8,7 +8,7 @@ services:
         build:
             context: ./php
             dockerfile: Dockerfile
-        image: web-php:7.3
+        image: web-php:8.0
         restart: on-failure
         volumes:
             - ./php/conf:/usr/local/etc/php
@@ -17,7 +17,7 @@ services:
             - default-network
     web-php-1:
         container_name: web-php-1
-        image: web-php:7.3
+        image: web-php:8.0
         restart: on-failure
         volumes:
             - ./php/conf:/usr/local/etc/php
@@ -28,7 +28,7 @@ services:
             - web-php
     web-php-2:
         container_name: web-php-2
-        image: web-php:7.3
+        image: web-php:8.0
         restart: on-failure
         volumes:
             - ./php/conf:/usr/local/etc/php
@@ -39,7 +39,7 @@ services:
             - web-php
     web-php-3:
         container_name: web-php-3
-        image: web-php:7.3
+        image: web-php:8.0
         restart: on-failure
         volumes:
             - ./php/conf:/usr/local/etc/php
