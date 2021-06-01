@@ -3,7 +3,7 @@ version: "3.9"
 services:
     # tw: 建立 php
     # en: Build php
-    web-php:
+    web-php: &basic-php
         container_name: web-php
         build:
             context: ./php
@@ -16,38 +16,14 @@ services:
         networks:
             - default-network
     web-php-1:
+        <<: *basic-php
         container_name: web-php-1
-        image: web-php:8.0
-        restart: on-failure
-        volumes:
-            - ./php/conf:/usr/local/etc/php
-            - web-site:/var/www/html
-        networks:
-            - default-network
-        depends_on:
-            - web-php
     web-php-2:
+        <<: *basic-php
         container_name: web-php-2
-        image: web-php:8.0
-        restart: on-failure
-        volumes:
-            - ./php/conf:/usr/local/etc/php
-            - web-site:/var/www/html
-        networks:
-            - default-network
-        depends_on:
-            - web-php
     web-php-3:
+        <<: *basic-php
         container_name: web-php-3
-        image: web-php:8.0
-        restart: on-failure
-        volumes:
-            - ./php/conf:/usr/local/etc/php
-            - web-site:/var/www/html
-        networks:
-            - default-network
-        depends_on:
-            - web-php
 
     # tw: 建立 nginx
     # en: Build nginx

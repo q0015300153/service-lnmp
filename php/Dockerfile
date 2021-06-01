@@ -8,7 +8,6 @@ RUN apt-get update && apt-get install -y \
 
 RUN docker-php-ext-install zip pdo pdo_mysql pdo_sqlite
 
-RUN pecl install uopz
 RUN curl --silent --show-error https://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer
 
