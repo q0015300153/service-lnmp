@@ -8,8 +8,7 @@ Set-PsEnv
 $parse = @(
     @("WEB_PATH",    $Env:WEB_PATH),
     @("WEB_DATA",    $Env:WEB_DATA),
-    @("NGINX_ALIAS", $Env:NGINX_ALIAS),
-    @("NGINX_LOG",   $Env:NGINX_LOG)
+    @("NGINX_ALIAS", $Env:NGINX_ALIAS)
 )
 
 $path = $(pwd)

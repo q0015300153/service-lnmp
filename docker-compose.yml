@@ -45,7 +45,6 @@ services:
             - ./nginx/conf:/etc/nginx/conf.d
             - nginx-alias:/etc/nginx/alias
             - web-site:/var/www/html
-            - nginx-log:/var/log/nginx
         networks:
             - default-network
 
@@ -90,14 +89,6 @@ volumes:
         driver_opts:
             type: none
             device: $PWD/${WEB_DATA:?err}
-            o: bind
-    # tw: Nginx log 存放路徑
-    # en: Nginx log storage path
-    nginx-log:
-        driver: local
-        driver_opts:
-            type: none
-            device: $PWD/${NGINX_LOG:?err}
             o: bind
 
 networks:

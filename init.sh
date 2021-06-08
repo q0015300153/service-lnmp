@@ -6,7 +6,7 @@
 
 # tw: 建立資料夾
 # en: Create folder
-.env -f ./.env parse WEB_PATH WEB_DATA NGINX_ALIAS WEB_LOG
+.env -f ./.env parse WEB_PATH WEB_DATA NGINX_ALIAS
 for path in "${REPLY[@]}"; do
 	IFS='=' read -ra param <<< "$path"
 	if ! [[ -n "${param[1]}" ]]; then
